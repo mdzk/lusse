@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/nunito_medium"
-            android:text="Selamat datang di lusse! 👋"
+            android:text="@string/gretting_text"
             android:textColor="#979797"
             android:textSize="16sp"
             tools:ignore="MissingConstraints"
@@ -168,13 +168,15 @@
                 android:textSize="30dp" />
 
         <ImageButton
-            android:id="@+id/btn_reset"
+            android:id="@+id/btn_reset_hitung"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/button_bg"
-            tools:src="@android:drawable/stat_notify_sync" />
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:background="@drawable/button_reset_bg"
+            app:srcCompat="@drawable/btn_reset" />
 
 
     </LinearLayout>

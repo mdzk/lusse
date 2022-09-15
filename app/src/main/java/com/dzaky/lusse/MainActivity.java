@@ -1,21 +1,26 @@
 package com.dzaky.lusse;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private EditText edtSisiA, edtSisiB, edtTinggi;
+    private EditText edtAlas, edtTinggi;
     private Button btnCalculate;
     private TextView tvResult;
-    private TextView hasilLuasTrapesium;
+    private TextView titleDescription;
 
     private static final String STATE_RESULT = "state_result";
 
@@ -25,17 +30,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         outState.putString(STATE_RESULT, tvResult.getText().toString());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
+        getWindow().setDecorFitsSystemWindows(false);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        edtSisiA = findViewById(R.id.edt_sisia);
-        edtSisiB = findViewById(R.id.edt_sisib);
+        edtAlas = findViewById(R.id.edt_alas);
         edtTinggi = findViewById(R.id.edt_tinggi);
         btnCalculate = findViewById(R.id.btn_calculate);
         tvResult = findViewById(R.id.tv_result);
-        hasilLuasTrapesium = findViewById(R.id.hasilLuasTrapesium);
+        titleDescription = findViewById(R.id.title_description);
         btnCalculate.setOnClickListener(this);
 
         if(savedInstanceState != null) {
@@ -47,9 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_calculate) {
+            String inputAlas = edtAlas.getText().toString().trim();
             String inputTinggi = edtTinggi.getText().toString().trim();
-            String inputSisiA = edtSisiA.getText().toString().trim();
-            String inputSisiB = edtSisiB.getText().toString().trim();
 
             boolean isEmptyFields = false;
 
@@ -58,25 +65,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 edtTinggi.setError("Field ini tidak boleh kosong");
             }
 
-            if(TextUtils.isEmpty(inputSisiA)) {
+            if(TextUtils.isEmpty(inputAlas)) {
                 isEmptyFields = true;
-                edtSisiA.setError("Field ini tidak boleh kosong");
-            }
-
-            if(TextUtils.isEmpty(inputSisiB)) {
-                isEmptyFields = true;
-                edtSisiB.setError("Field ini tidak boleh kosong");
+                edtAlas.setError("Field ini tidak boleh kosong");
             }
 
             if(!isEmptyFields) {
-                Double jumlahSisi = Double.parseDouble(inputSisiA)
-                        + Double.parseDouble(inputSisiB);
-                Double luas = Double.parseDouble(String.valueOf(jumlahSisi))
-                        * Double.parseDouble(inputTinggi) / 2;
+                Double luas = Double.parseDouble(inputAlas)
+                        * Double.parseDouble(inputTinggi);
 
                 tvResult.setText(String.valueOf(luas));
                 if(luas > 0) {
-                    hasilLuasTrapesium.setText(String.valueOf("Hasil luas trapesium"));
+                    titleDescription.setText(String.valueOf("Hasil luas jajar genjang"));
+                }
+                if(getCurrentFocus() != null) {
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                 }
             }
 

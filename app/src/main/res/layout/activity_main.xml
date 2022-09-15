@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4FFF9"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -29,7 +30,7 @@
             tools:layout_editor_absoluteY="42dp" />
 
         <TextView
-            android:id="@+id/hasilLuasTrapesium"
+            android:id="@+id/title_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -85,14 +86,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sisi A"
+                    android:text="@string/alas"
                     android:fontFamily="@font/nunito_medium"
                     android:textSize="16sp"
                     android:layout_marginBottom="5sp"
                     android:textColor="#979797" />
 
                 <EditText
-                    android:id="@+id/edt_sisia"
+                    android:id="@+id/edt_alas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/field_bg"
@@ -102,32 +103,9 @@
                     android:paddingTop="10dp"
                     android:paddingRight="18dp"
                     android:paddingBottom="10dp"
-                    android:fontFamily="@font/nunito_bold"
-                    android:textColor="#1D2A30"
-                    android:textSize="30dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Sisi B"
+                    android:hint="Masukkan Alas"
+                    android:textColorHint="#979797"
                     android:fontFamily="@font/nunito_medium"
-                    android:textSize="16sp"
-                    android:layout_marginBottom="5sp"
-                    android:textColor="#979797" />
-
-                <EditText
-                    android:id="@+id/edt_sisib"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/field_bg"
-                    android:inputType="numberDecimal"
-                    android:lines="1"
-                    android:paddingLeft="18dp"
-                    android:paddingTop="10dp"
-                    android:paddingRight="18dp"
-                    android:paddingBottom="10dp"
-                    android:fontFamily="@font/nunito_bold"
                     android:textColor="#1D2A30"
                     android:textSize="30dp" />
 
@@ -152,7 +130,9 @@
                     android:paddingTop="10dp"
                     android:paddingRight="18dp"
                     android:paddingBottom="10dp"
-                    android:fontFamily="@font/nunito_bold"
+                    android:hint="Masukkan Tinggi"
+                    android:textColorHint="#979797"
+                    android:fontFamily="@font/nunito_medium"
                     android:textColor="#1D2A30"
                     android:textSize="30dp" />
             </LinearLayout>
@@ -163,21 +143,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="@dimen/main_padding"
         android:background="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints">
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
-
             <Button
                 android:id="@+id/btn_calculate"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="false"
+                android:layout_weight="1"
                 android:background="@drawable/button_bg"
                 android:fontFamily="@font/nunito_medium"
                 android:paddingLeft="16dp"
@@ -186,10 +163,20 @@
                 android:paddingBottom="10dp"
                 android:text="@string/button"
                 android:textAllCaps="false"
-                style="?android:attr/borderlessButtonStyle"
+                android:textColor="#fff"
+                android:layout_marginRight="8dp"
                 android:textSize="30dp" />
 
-        </RelativeLayout>
+        <ImageButton
+            android:id="@+id/btn_reset"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_bg"
+            tools:src="@android:drawable/stat_notify_sync" />
+
+
     </LinearLayout>
 
 

@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText edtSisiA, edtSisiB, edtTinggi;
     private Button btnCalculate;
     private TextView tvResult;
+    private TextView hasilLuasTrapesium;
 
     private static final String STATE_RESULT = "state_result";
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edtTinggi = findViewById(R.id.edt_tinggi);
         btnCalculate = findViewById(R.id.btn_calculate);
         tvResult = findViewById(R.id.tv_result);
+        hasilLuasTrapesium = findViewById(R.id.hasilLuasTrapesium);
         btnCalculate.setOnClickListener(this);
 
         if(savedInstanceState != null) {
@@ -73,6 +75,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         * Double.parseDouble(inputTinggi) / 2;
 
                 tvResult.setText(String.valueOf(luas));
+                if(luas > 0) {
+                    hasilLuasTrapesium.setText(String.valueOf("Hasil luas trapesium"));
+                }
             }
 
         }

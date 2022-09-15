@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F4F8"
+    android:background="#F4FFF9"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -13,17 +13,30 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="@dimen/main_padding"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selamat datang di Lusse!"
-            android:textColor="#3A3A3A"
-            android:textSize="24sp"
-            android:fontFamily="@font/nunito_extrabold"
+            android:fontFamily="@font/nunito_semibold"
+            android:text="Home"
+            android:textColor="#1D2A30"
+            android:textSize="32sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="31dp"
+            tools:layout_editor_absoluteY="42dp" />
+
+        <TextView
+            android:id="@+id/hasilLuasTrapesium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nunito_medium"
+            android:text="Selamat datang di lusse! 👋"
+            android:textColor="#979797"
+            android:textSize="16sp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="31dp"
             tools:layout_editor_absoluteY="42dp" />
@@ -32,29 +45,27 @@
             android:id="@+id/tv_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="result"
-            android:textColor="#000"
-            android:textSize="24sp"
+            android:fontFamily="@font/nunito_extrabold"
+            android:gravity="start"
+            android:textColor="#1D2A30"
+            android:textSize="40sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/buttonbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/layout_bg"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingTop="40dp"
-        android:paddingRight="16dp"
-        app:layout_constraintTop_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-16dp">
+        android:padding="@dimen/main_padding"
+        android:background="@drawable/layout_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="422dp">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,8 +76,20 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="Hitung luas di sini 👀"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:layout_marginBottom="20dp"
+                    android:textColor="#1D2A30" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Sisi A"
-                    android:textColor="#000" />
+                    android:fontFamily="@font/nunito_medium"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:textColor="#979797" />
 
                 <EditText
                     android:id="@+id/edt_sisia"
@@ -75,11 +98,12 @@
                     android:background="@drawable/field_bg"
                     android:inputType="numberDecimal"
                     android:lines="1"
-                    android:paddingLeft="16dp"
+                    android:paddingLeft="18dp"
                     android:paddingTop="10dp"
-                    android:paddingRight="16dp"
+                    android:paddingRight="18dp"
                     android:paddingBottom="10dp"
-                    android:textColor="#000"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textColor="#1D2A30"
                     android:textSize="30dp" />
 
                 <TextView
@@ -87,7 +111,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="Sisi B"
-                    android:textColor="#000" />
+                    android:fontFamily="@font/nunito_medium"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:textColor="#979797" />
 
                 <EditText
                     android:id="@+id/edt_sisib"
@@ -96,11 +123,12 @@
                     android:background="@drawable/field_bg"
                     android:inputType="numberDecimal"
                     android:lines="1"
-                    android:paddingLeft="16dp"
+                    android:paddingLeft="18dp"
                     android:paddingTop="10dp"
-                    android:paddingRight="16dp"
+                    android:paddingRight="18dp"
                     android:paddingBottom="10dp"
-                    android:textColor="#000"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textColor="#1D2A30"
                     android:textSize="30dp" />
 
                 <TextView
@@ -108,7 +136,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/tinggi"
-                    android:textColor="#000" />
+                    android:fontFamily="@font/nunito_medium"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5sp"
+                    android:textColor="#979797" />
 
                 <EditText
                     android:id="@+id/edt_tinggi"
@@ -117,11 +148,12 @@
                     android:background="@drawable/field_bg"
                     android:inputType="numberDecimal"
                     android:lines="1"
-                    android:paddingLeft="16dp"
+                    android:paddingLeft="18dp"
                     android:paddingTop="10dp"
-                    android:paddingRight="16dp"
+                    android:paddingRight="18dp"
                     android:paddingBottom="10dp"
-                    android:textColor="#000"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textColor="#1D2A30"
                     android:textSize="30dp" />
             </LinearLayout>
         </ScrollView>
@@ -129,13 +161,13 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/buttonbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="@dimen/main_padding"
+        android:background="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="16dp">
+        tools:ignore="MissingConstraints">
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -148,12 +180,13 @@
                 android:layout_alignParentLeft="false"
                 android:background="@drawable/button_bg"
                 android:fontFamily="@font/nunito_medium"
-                android:text="@string/button"
-                android:textAllCaps="false"
                 android:paddingLeft="16dp"
                 android:paddingTop="10dp"
                 android:paddingRight="16dp"
                 android:paddingBottom="10dp"
+                android:text="@string/button"
+                android:textAllCaps="false"
+                style="?android:attr/borderlessButtonStyle"
                 android:textSize="30dp" />
 
         </RelativeLayout>
